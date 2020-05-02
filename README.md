@@ -27,19 +27,19 @@ Maybes:
 - Rate systems (Bootstrap check in to that or vuetify)
 - Url links to videos from youtube base on guns
 
-### Schedule
-# WEEK 1:  
+# Schedule
+#### WEEK 1:  
 - 1-3 days: Setting up Django rest framework and API and Users.
 - 2 days: Store user input info and display it to the webpage  
 
-# WEEK 2:
+#### WEEK 2:
 
 - 1 day: Build comment area for each input gun
 - 2 day: display all airsoft gun by type of airsoft guns added 
 - 3-4 day: Add filter by gun types for the user to pick to view
 
 
-# WEEK 3:
+#### WEEK 3:
 - 1 day working on the fliter part of the website
  - 2-3 CSS Make the website and layout using able on mobile on PC
 
