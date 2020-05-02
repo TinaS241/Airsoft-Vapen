@@ -39,5 +39,7 @@ Maybes:
 - 3-4 day: Add filter by gun types for the user to pick to view
 
 
-
 # WEEK 3:
+- 1 day working on the fliter part of the website
+ - 2-3 CSS/HTML Make  the website and layout using able on mobile on PC
+
