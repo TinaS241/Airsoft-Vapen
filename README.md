@@ -14,7 +14,7 @@ What libraries or frameworks will be used? None right now, FrameWork will be Dja
 As a user, I want to be able to add a picture of my airsoft gun and all the components to it and attachments to it. I want to be able to find other users’ builds and put them on a favorites list and rate them. Comment area to ask about the build. Link to youtube reviews base on the gun itself. 
 
 
-### Task: 
+# Task
 
 #### Must Half:
 - Store airsoft gun info, edit and delete
