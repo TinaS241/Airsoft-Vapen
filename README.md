@@ -35,7 +35,7 @@ As a user, I want to be able to add a picture of my airsoft gun and all the comp
 
 #### WEEK 2:
 
-- 1 day: Build comment area for each input gun
+- 1 day: Build comment area for each input gun and display pictures
 - 2 day: display all airsoft gun by type of airsoft guns added 
 - 3-4 day: Add filter by gun types for the user to pick to view
 
