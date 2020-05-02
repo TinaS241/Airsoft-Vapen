@@ -41,5 +41,5 @@ Maybes:
 
 # WEEK 3:
 - 1 day working on the fliter part of the website
- - 2-3 CSS/HTML Make  the website and layout using able on mobile on PC
+ - 2-3 CSS Make the website and layout using able on mobile on PC
 
