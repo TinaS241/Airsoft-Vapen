@@ -1,4 +1,4 @@
-#Airsoft Vapen
+# Airsoft Vapen
 Project OverView:
 
 What are the major features of your web application? 
@@ -17,22 +17,22 @@ As a user, I want to be able to add a picture of my airsoft gun and all the comp
 Task: 
 
 Must Half:
--Store airsoft gun info, edit and delete
--Filter by airsoft guns type and ranks EX: M4, Aks, pistols
--Display all airsoft guns within there area. 
--Comment select and allow a user to add edit and delete comments. 
+- Store airsoft gun info, edit and delete
+- Filter by airsoft guns type and ranks EX: M4, Aks, pistols
+- Display all airsoft guns within there area. 
+- Comment select and allow a user to add edit and delete comments. 
 
 Maybes: 
--Scrape airsoft gun website info 
--Rate systems (Bootstrap check in to that or vuetify)
--Url links to videos from youtube base on guns
+- Scrape airsoft gun website info 
+- Rate systems (Bootstrap check in to that or vuetify)
+- Url links to videos from youtube base on guns
 
-###Schedule
-#WEEK 1:  
+### Schedule
+# WEEK 1:  
 1-3 days: Setting up Django rest framework and API and Users.
 2 days: Store user input info and display it to the webpage  
 
-#WEEK 2:
+# WEEK 2:
 
 1 day: Build comment area for each input gun
 2 day: display all airsoft gun by type of airsoft guns added 
@@ -40,4 +40,4 @@ Maybes:
 
 
 
-#WEEK 3:
+# WEEK 3:
