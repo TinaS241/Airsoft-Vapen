@@ -27,10 +27,11 @@ As a user, I want to be able to add a picture of my airsoft gun and all the comp
 - Rate systems (Bootstrap check in to that or vuetify)
 - Url links to videos from youtube base on guns
 
+
 # Schedule
 #### WEEK 1:  
 - 1-3 days: Setting up Django rest framework and API and Users.
-- 2 days: Store user input info and display it to the webpage  
+- 2 days: Store user input info and display it to the webpage with URL link to where to buy same parts  
 
 #### WEEK 2:
 
