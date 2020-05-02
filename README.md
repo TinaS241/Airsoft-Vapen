@@ -5,7 +5,7 @@ What are the major features of your web application?
 To allow the user to input their own custom airsoft build into the website. 
 
 Problem to solve? 
-One place to allow the user to see builds people have done and where to buy the parts, get first-hand user info from players. 
+To show off custom airsoft guilds and place to allow the user to see builds people have done and where to buy the parts, get first-hand user info from players. 
 
 
 What libraries or frameworks will be used? None right now, FrameWork will be Django Framework
