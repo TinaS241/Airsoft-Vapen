@@ -14,15 +14,15 @@ What libraries or frameworks will be used? None right now, FrameWork will be Dja
 As a user, I want to be able to add a picture of my airsoft gun and all the components to it and attachments to it. I want to be able to find other users’ builds and put them on a favorites list and rate them. Comment area to ask about the build. Link to youtube reviews base on the gun itself. 
 
 
-Task: 
+### Task: 
 
-Must Half:
+#### Must Half:
 - Store airsoft gun info, edit and delete
 - Filter by airsoft guns type and ranks EX: M4, Aks, pistols
 - Display all airsoft guns within there area. 
 - Comment select and allow a user to add edit and delete comments. 
 
-Maybes: 
+ #### Maybes: 
 - Scrape airsoft gun website info 
 - Rate systems (Bootstrap check in to that or vuetify)
 - Url links to videos from youtube base on guns
