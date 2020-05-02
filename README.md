@@ -29,14 +29,14 @@ Maybes:
 
 ### Schedule
 # WEEK 1:  
-1-3 days: Setting up Django rest framework and API and Users.
-2 days: Store user input info and display it to the webpage  
+- 1-3 days: Setting up Django rest framework and API and Users.
+- 2 days: Store user input info and display it to the webpage  
 
 # WEEK 2:
 
-1 day: Build comment area for each input gun
-2 day: display all airsoft gun by type of airsoft guns added 
-3-4 day: Add filter by gun types for the user to pick to view
+- 1 day: Build comment area for each input gun
+- 2 day: display all airsoft gun by type of airsoft guns added 
+- 3-4 day: Add filter by gun types for the user to pick to view
 
 
 
