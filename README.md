@@ -11,7 +11,7 @@ To show off custom airsoft guilds and place to allow the user to see builds peop
 What libraries or frameworks will be used? None right now, FrameWork will be Django Framework
 
 
-As a user, I want to be able to add a picture of my airsoft gun and all the components to it and attachments to it. I want to be able to find other users’ builds and put them on a favorites list and rate them. Comment area to ask about the build. Link to youtube reviews base on the gun itself. 
+As a user, I want to be able to add a picture of my airsoft gun and what part i have install and give info about what i have done to it.  I want to be able to find other users’ builds and put them on a favorites list and rate them and post a comment to ask about the build. I want a link to where they bought the parts and gun. 
 
 
 # Task
@@ -23,7 +23,6 @@ As a user, I want to be able to add a picture of my airsoft gun and all the comp
 - Comment select and allow a user to add edit and delete comments. 
 
  #### Maybes: 
-- Scrape airsoft gun website info 
 - Rate systems (Bootstrap check in to that or vuetify)
 - Url links to videos from youtube base on guns
 
@@ -41,6 +40,6 @@ As a user, I want to be able to add a picture of my airsoft gun and all the comp
 
 
 #### WEEK 3:
-- 1 day working on the fliter part of the website
- - 2-3 CSS Make the website and layout using able on mobile on PC
+- 1 days: working on the fliter part of the website
+ - 2-3 days: CSS Make the website and layout using able on mobile on PC
 
