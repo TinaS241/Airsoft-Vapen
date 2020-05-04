@@ -39,10 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'bootstrap3',
 
    
 
     'api.apps.ApiConfig',
+
+
     'user.apps.UserConfig',
     'vapen.apps.VapenConfig',
 
@@ -130,10 +133,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-LOGIN_REDIRECT_URL = 'vapen:home'
-LOGOUT_REDIRECT_URL = 'vapen:home'
 
-LOGIN_URL = 'login'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [

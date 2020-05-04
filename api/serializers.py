@@ -10,10 +10,12 @@ class AirsoftInternalSerializer(serializers.ModelSerializer):
 
 
 class AirsoftExternalSerializer(serializers.ModelSerializer):
-    fields = ('adptors','charging_handles','conversion_kit','flash_hider','front_assembly','gas_block','under_barrel','hand_guard','magzine_catch','receivers','hand_grip','outer_barrels','pins','rail_accessories','rails','selector_switch','sight','sling_adapeters','stock','trigger','trigger_guard','vertical_grips')
-    model = models.AirsoftExternal
+    class Meta:
+        fields = ('adptors','charging_handles','conversion_kit','flash_hider','front_assembly','gas_block','under_barrel','hand_guard','magzine_catch','receivers','hand_grip','outer_barrels','pins','rail_accessories','rails','selector_switch','sight','sling_adapeters','stock','trigger','trigger_guard','vertical_grips')
+        model = models.AirsoftExternal
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    fields = ('author','text','created_date','published_date')
-    model = models.Comment
+    class Meta:
+        fields = ('author','text','created_date','published_date')
+        model = models.Comment
