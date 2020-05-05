@@ -1,14 +1,21 @@
-from django.urls import path
-from rest_framework.routers import SimpleRouter
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 
 from .views import AirsoftExternalViewSet, AirsoftInternalViewSet, CommentViewSet
 
-router = SimpleRouter()
+router = DefaultRouter()
 
-router.register('', AirsoftExternalViewSet, basename='AirsoftExternal')
-router.register('', AirsoftInternalViewSet, basename='AirsoftInternal')
-router.register('', CommentViewSet, basename='Comment')
+router.register('AirsoftExternal', AirsoftExternalViewSet, basename='AirsoftExternal')
+router.register('AirsoftInternal', AirsoftInternalViewSet, basename='AirsoftInternal')
+router.register('Comment', CommentViewSet, basename='Comment')
 
 
 
-urlpatterns = router.urls
+# urlpatterns = router.urls
+
+urlpatterns = [
+    path('',include(router.urls)),
+]
+
+
+

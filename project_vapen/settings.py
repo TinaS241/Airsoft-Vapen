@@ -134,6 +134,13 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
+LOGIN_REDIRECT_URL = 'vapen:home'
+LOGOUT_REDIRECT_URL = 'vapen:home'
+
+LOGIN_URL = 'login'
+
+
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [

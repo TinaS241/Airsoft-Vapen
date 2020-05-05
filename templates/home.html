@@ -1,4 +1,79 @@
+{% extends "base.html" %}
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-{# Read the documentation for more information #}
-<h1> WE did it?</h1>
+
+    <title>Airsoft Vapen</title>
+
+  </head>
+
+  {% block content %}
+  <body>
+                <div class="btn-group" role="group" aria-label="First group">
+                    <a href="vapen/riflepage"  class="btn btn-secondary" style="background-color: black;">AEG Airsoft Rifles</a>
+                    <a href="vapen/hpa" class="btn btn-secondary">HPA Airsoft Rifles</a>
+                    <a href="vapen/custom" class="btn btn-secondary" style="background-color: black;">Custom Airsoft Rifles</a>
+                    {% comment %} <button type="button" class="btn btn-secondary">4</button> {% endcomment %}
+                </div>
+
+            <div class="d-flex p-2 bd-highlight">
+
+                <div class="row row-cols-1 row-cols-md-3">
+                <div class="col mb-4">
+                    <div class="card">
+                        
+                        <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p><a href="#" class="text-primary">Primary link</a></p>
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="col mb-4">
+                    <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col mb-4">
+                    <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col mb-4">
+                    <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+    
+        
+        
+        
+    {% endblock content %}
+  </body>
+
+</html>
+
+
+
