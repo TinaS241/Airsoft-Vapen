@@ -1,6 +1,9 @@
 from rest_framework import serializers
 
+
 from vapen import models
+
+
 
 
 class AirsoftInternalSerializer(serializers.ModelSerializer):
@@ -19,3 +22,9 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         fields = ('id','author','text','created_date','published_date')
         model = models.Comment
+
+
+# class UserSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         fields = ()
+#         model = models.CustomUser

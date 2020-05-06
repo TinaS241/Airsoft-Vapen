@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.conf import settings
 from django.urls import reverse
 from django.contrib import admin
+from django.contrib.auth.models import (AbstractBaseUser,PermissionsMixin)
 
 class AirsoftInternal(models.Model):
     airnozzle = models.CharField(max_length=200)
@@ -69,7 +70,7 @@ class AirsoftExternal(models.Model):
 
 
 class Comment(models.Model):
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     text = models.TextField(max_length=500)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)

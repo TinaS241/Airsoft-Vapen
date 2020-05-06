@@ -39,8 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
-    'bootstrap3',
-
+    
    
 
     'api.apps.ApiConfig',
@@ -147,3 +146,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
 ]
 }
+
+
+AUTH_USER_MODEL = 'user.CustomUser'
