@@ -10,63 +10,94 @@
     <title>Add a New Gun</title>
   </head>
     <body>
+          <div id="app">
 
-      <h1> Hello? </h1>
-      
-            <div id="app">
-              <input type="text" placeholder="description" v-model="airsoftpartlist.text"><br>
-              <input type="text" placeholder="airnozzle" v-model="airsoftpartlist.airnozzle"><br>
-              <input type="text" placeholder="anti_reversal_latches" v-model="airsoftpartlist.anti_reversal_latches"><br>
-              <input type="text" placeholder="bushing_bearings" v-model="airsoftpartlist.bushing_bearings"><br>
-              <input type="text" placeholder="cut_off_levers" v-model="airsoftpartlist.cut_off_levers"><br>
-              <input type="text" placeholder="cylinder_heads" v-model="airsoftpartlist.cylinder_heads"><br>
-              <input type="text" placeholder="cylinder_tuneup" v-model="airsoftpartlist.cylinder_tuneup"><br>
-              <input type="text" placeholder="cylinder" v-model="airsoftpartlist.cylinder"><br>
-              <input type="text" placeholder="fuse" v-model="airsoftpartlist.fuse"><br>
-              <input type="text" placeholder="gearbox" v-model="airsoftpartlist.gearbox"><br>
-              <input type="text" placeholder="gears" v-model="airsoftpartlist.gears"><br>
-              <input type="text" placeholder="hop_up" v-model="airsoftpartlist.hop_up"><br>
-              <input type="text" placeholder="inner_barrels" v-model="airsoftpartlist.inner_barrels"><br>
-              <input type="text" placeholder="mosfet" v-model="airsoftpartlist.mosfet"><br>
-              <input type="text" placeholder="motor" v-model="airsoftpartlist.motor"><br>
-              <input type="text" placeholder="piston_heads" v-model="airsoftpartlist.piston_heads"><br>
-              <input type="text" placeholder="pistons" v-model="airsoftpartlist.pistons"><br>
-              <input type="text" placeholder="selector_plate" v-model="airsoftpartlist.selector_plate"><br>
-              <input type="text" placeholder="shims" v-model="airsoftpartlist.shims"><br>
-              <input type="text" placeholder="spring_guides" v-model="airsoftpartlist.spring_guides"><br>
-              <input type="text" placeholder="spring" v-model="airsoftpartlist.spring"><br>
-              <input type="text" placeholder="tappert_plate" v-model="airsoftpartlist.tappert_plate"><br>
-              <input type="text" placeholder="tune_upkit" v-model="airsoftpartlist.tune_upkit"><br>
-              <input type="text" placeholder="wiring_mosfet" v-model="airsoftpartlist.wiring_mosfet"><br>
-              <input type="text" placeholder="adptors" v-model="airsoftpartlist.adptors"><br>
-              <input type="text" placeholder="charging_handles" v-model="airsoftpartlist.charging_handles"><br>
-              <input type="text" placeholder="conversion_kit" v-model="airsoftpartlist.conversion_kit"><br>
-              <input type="text" placeholder="flash_hider" v-model="airsoftpartlist.flash_hider"><br>
-              <input type="text" placeholder="front_assembly" v-model="airsoftpartlist.front_assembly"><br>
-              <input type="text" placeholder="gas_block" v-model="airsoftpartlist.gas_block"><br>
-              <input type="text" placeholder="under_barrel" v-model="airsoftpartlist.under_barrel"><br>
-              <input type="text" placeholder="hand_guard" v-model="airsoftpartlist.hand_guard"><br>
-              <input type="text" placeholder="magzine_catch" v-model="airsoftpartlist.magzine_catch"><br>
-              <input type="text" placeholder="receivers" v-model="airsoftpartlist.receivers"><br>
-              <input type="text" placeholder="hand_grip" v-model="airsoftpartlist.hand_grip"><br>
-              <input type="text" placeholder="outer_barrels" v-model="airsoftpartlist.outer_barrels"><br>
-              <input type="text" placeholder="pins" v-model="airsoftpartlist.pins"><br>
-              <input type="text" placeholder="rail_accessories" v-model="airsoftpartlist.rail_accessories"><br>
-              <input type="text" placeholder="selector_switch" v-model="airsoftpartlist.selector_switch"><br>
-              <input type="text" placeholder="rails" v-model="airsoftpartlist.rails"><br>
-              <input type="text" placeholder="sight" v-model="airsoftpartlist.sight"><br>
-              <input type="text" placeholder="sling_adapeters" v-model="airsoftpartlist.sling_adapeters"><br>
-              <input type="text" placeholder="stock" v-model="airsoftpartlist.stock"><br>
-              <input type="text" placeholder="trigger" v-model="airsoftpartlist.trigger"><br>
-              <input type="text" placeholder="trigger_guard" v-model="airsoftpartlist.trigger_guard"><br>
-              <input type="text" placeholder="vertical_grips" v-model="airsoftpartlist.vertical_grips"><br>
-              <button @click="newAirsoftgun">New Airsoft build</button>
-              
+                  <form>
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1">Example select</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option>Rifle</option>
+                          <option>Pistol</option>
+                          <option>ShotGun</option>
+                          <option>SMG</option>
+                          <option>Machinge Gun</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" v-model="airsoftpartlist.text" rows="3"></textarea>
+                      </div>
+
+                    <div class="form-row">
+                      <div class="col">
+                        <h2><label for="internalparts">INTERNAL PARTS</label></h2><br>
+                        <input type="text" placeholder="airnozzle" v-model="airsoftpartlist.airnozzle"><br>
+                        <input type="text" placeholder="anti_reversal_latches" v-model="airsoftpartlist.anti_reversal_latches"><br>
+                        <input type="text" placeholder="bushing_bearings" v-model="airsoftpartlist.bushing_bearings"><br>
+                        <input type="text" placeholder="cut_off_levers" v-model="airsoftpartlist.cut_off_levers"><br>
+                        <input type="text" placeholder="cylinder_heads" v-model="airsoftpartlist.cylinder_heads"><br>
+                        <input type="text" placeholder="cylinder_tuneup" v-model="airsoftpartlist.cylinder_tuneup"><br>
+                        <input type="text" placeholder="cylinder" v-model="airsoftpartlist.cylinder"><br>
+                        <input type="text" placeholder="fuse" v-model="airsoftpartlist.fuse"><br>
+                        <input type="text" placeholder="gearbox" v-model="airsoftpartlist.gearbox"><br>
+                        <input type="text" placeholder="gears" v-model="airsoftpartlist.gears"><br>
+                        <input type="text" placeholder="hop_up" v-model="airsoftpartlist.hop_up"><br>
+                        <input type="text" placeholder="inner_barrels" v-model="airsoftpartlist.inner_barrels"><br>
+                        <input type="text" placeholder="mosfet" v-model="airsoftpartlist.mosfet"><br>
+                        <input type="text" placeholder="motor" v-model="airsoftpartlist.motor"><br>
+                        <input type="text" placeholder="piston_heads" v-model="airsoftpartlist.piston_heads"><br>
+                        <input type="text" placeholder="pistons" v-model="airsoftpartlist.pistons"><br>
+                        <input type="text" placeholder="selector_plate" v-model="airsoftpartlist.selector_plate"><br>
+                        <input type="text" placeholder="shims" v-model="airsoftpartlist.shims"><br>
+                        <input type="text" placeholder="spring_guides" v-model="airsoftpartlist.spring_guides"><br>
+                        <input type="text" placeholder="spring" v-model="airsoftpartlist.spring"><br>
+                        <input type="text" placeholder="tappert_plate" v-model="airsoftpartlist.tappert_plate"><br>
+                        <input type="text" placeholder="tune_upkit" v-model="airsoftpartlist.tune_upkit"><br>
+                        <input type="text" placeholder="wiring_mosfet" v-model="airsoftpartlist.wiring_mosfet"><br>
+                      </div>
+                    
+
+                      <div class="col">
+                        <h2><label for="externalpart">EXTERNAL PARTS</label></h2><br>
+                        <input type="text" placeholder="adptors" v-model="airsoftpartlist.adptors"><br>
+                        <input type="text" placeholder="charging_handles" v-model="airsoftpartlist.charging_handles"><br>
+                        <input type="text" placeholder="conversion_kit" v-model="airsoftpartlist.conversion_kit"><br>
+                        <input type="text" placeholder="flash_hider" v-model="airsoftpartlist.flash_hider"><br>
+                        <input type="text" placeholder="front_assembly" v-model="airsoftpartlist.front_assembly"><br>
+                        <input type="text" placeholder="gas_block" v-model="airsoftpartlist.gas_block"><br>
+                        <input type="text" placeholder="under_barrel" v-model="airsoftpartlist.under_barrel"><br>
+                        <input type="text" placeholder="hand_guard" v-model="airsoftpartlist.hand_guard"><br>
+                        <input type="text" placeholder="magzine_catch" v-model="airsoftpartlist.magzine_catch"><br>
+                        <input type="text" placeholder="receivers" v-model="airsoftpartlist.receivers"><br>
+                        <input type="text" placeholder="hand_grip" v-model="airsoftpartlist.hand_grip"><br>
+                        <input type="text" placeholder="outer_barrels" v-model="airsoftpartlist.outer_barrels"><br>
+                        <input type="text" placeholder="pins" v-model="airsoftpartlist.pins"><br>
+                        <input type="text" placeholder="rail_accessories" v-model="airsoftpartlist.rail_accessories"><br>
+                        <input type="text" placeholder="selector_switch" v-model="airsoftpartlist.selector_switch"><br>
+                        <input type="text" placeholder="rails" v-model="airsoftpartlist.rails"><br>
+                        <input type="text" placeholder="sight" v-model="airsoftpartlist.sight"><br>
+                        <input type="text" placeholder="sling_adapeters" v-model="airsoftpartlist.sling_adapeters"><br>
+                        <input type="text" placeholder="stock" v-model="airsoftpartlist.stock"><br>
+                        <input type="text" placeholder="trigger" v-model="airsoftpartlist.trigger"><br>
+                        <input type="text" placeholder="trigger_guard" v-model="airsoftpartlist.trigger_guard"><br>
+                        <input type="text" placeholder="vertical_grips" v-model="airsoftpartlist.vertical_grips"><br>
+                        <button @click="newAirsoftgun">New Airsoft build</button>
+                      </div>
+                    </div>
+                  </form>
+
+
+
+
+
+
+
+
           
 
 
 
-            </div>
+          </div>
 
       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
       <script src="https://unpkg.com/vue"></script>
