@@ -3,11 +3,13 @@ from django.views.generic import TemplateView
 
 from . import views
 
+from .views import home_view
+
 app_name = 'vapen'
 urlpatterns = [
     path('', TemplateView.as_view(template_name="home.html"), name='home'),
 
-    path('vapen/<str:username>/',TemplateView.as_view(template_name="userprofile"), name="profile" ),
+   path('vapen/', home_view), 
 
     path('vapen/custom/', TemplateView.as_view(template_name="custom.html"), name='custom'),
 

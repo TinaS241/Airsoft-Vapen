@@ -7,5 +7,51 @@
 <h1>{{ user.username }}</h1>
 <h5>Umm whats here?</h5>
 
+{% csrf_token %}
+<div id="app">
+  <div>
+    <article v-for="user in data">
+        <h2>[[ user ]]</h2>
+    </article>
+  </div>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    delimiters: ['[[',']]'],
+    data: {
+      csrf_token: "",
+      data: [],
+      userdata: {  
+            "email": "",
+            "username": "",
+            "location": "",
+            "team": "",
+            "team_page": "",
+            "name": "",
+            "age": ""
+        }
+    },
+    methods: {
+      getUserData: function() {
+        axios({
+          method: "get",
+          url: "http://127.0.0.1:8000/api/v1/User/"
+        }).then(response => this.data = response.data)
+      }
+    },
+    mounted: function () {
+      this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+      this.getUserList();
+    }
+  });
+</script>
+
+
+
+
+
 
 {% endblock content %}

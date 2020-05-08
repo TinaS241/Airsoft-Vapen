@@ -4,8 +4,12 @@ from django.conf import settings
 from django.urls import reverse
 from django.contrib import admin
 from django.contrib.auth.models import (AbstractBaseUser,PermissionsMixin)
+from user.models import CustomUser
+from django.contrib.auth.models import User
 
-class AirsoftInternal(models.Model):
+class Airsoft(models.Model):
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True,)
+    text = models.TextField(max_length=1000)
     airnozzle = models.CharField(max_length=200)
     anti_reversal_latches = models.CharField(max_length=200)
     bushing_bearings = models.CharField(max_length=200)
@@ -29,16 +33,6 @@ class AirsoftInternal(models.Model):
     tappert_plate = models.CharField(max_length=200)
     tune_upkit = models.CharField(max_length=200)
     wiring_mosfet =  models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.airnozzle
-            
-
-        
-
-
-
-class AirsoftExternal(models.Model):
     adptors = models.CharField(max_length=200)
     charging_handles = models.CharField(max_length=200)
     conversion_kit = models.CharField(max_length=200)
@@ -62,15 +56,14 @@ class AirsoftExternal(models.Model):
     trigger_guard = models.CharField(max_length=200)
     vertical_grips = models.CharField(max_length=200)
 
-
     def __str__(self):
-        return self.adptors
-        
-
+        return self.airnozzle
+            
 
 
 class Comment(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    airsoft = models.ForeignKey(Airsoft, on_delete=models.CASCADE)
     text = models.TextField(max_length=500)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
