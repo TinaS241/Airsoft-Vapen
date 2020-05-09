@@ -14,8 +14,8 @@
 
                   <form>
                       <div class="form-group">
-                        <label for="exampleFormControlSelect1">Example select</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <label for="modeltype" name="model">Model Type</label>
+                        <select class="form-control" id="modeltype" v-model="airsoftpartlist.modeltype">
                           <option>Rifle</option>
                           <option>Pistol</option>
                           <option>ShotGun</option>
@@ -86,17 +86,6 @@
                     </div>
                   </form>
 
-
-
-
-
-
-
-
-          
-
-
-
           </div>
 
       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -112,9 +101,13 @@
     data: {
       csrf_token: "",
       airsoftdata: [],
+      model: [
+      'RIFLE','PISTOL','SHOTGUN','SMG','MACHINGEGUN'
+      ],
       author: "",
       airsoftpartlist: {
-          "id": "",  
+          "id": "",
+          "modeltype": "",  
           "text": "",
           "airnozzle": "",
           "anti_reversal_latches": "",
@@ -182,6 +175,7 @@
             this.airsoftpartlist = {
               "author": "",
               "text": "",
+              "modeltype": "",
               "airnozzle": "",
               "anti_reversal_latches": "",
               "bushing_bearings": "",

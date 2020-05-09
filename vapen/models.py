@@ -56,6 +56,16 @@ class Airsoft(models.Model):
     trigger_guard = models.CharField(max_length=200,blank=True)
     vertical_grips = models.CharField(max_length=200,blank=True)
 
+    airsofttype = (
+        ("RIFLE", "Rifle"),
+        ("PISTOL", "Pistol"),
+        ("SHOTGUN", "Shotgun"),
+        ("SMG", "Smg"),
+        ("MACHINGEGUN", "MachingeGun")
+    )
+
+    modeltype = models.CharField(max_length=11, choices=airsofttype, default=airsofttype)
+
     def __str__(self):
         return self.airnozzle
             
