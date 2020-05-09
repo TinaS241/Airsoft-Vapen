@@ -14,8 +14,8 @@
 
                   <form>
                       <div class="form-group">
-                        <label for="modeltype" name="model">Model Type</label>
-                        <select class="form-control" id="modeltype" v-model="airsoftpartlist.modeltype">
+                        <label for="modeltype" name="modeltype">Model Type</label>
+                        <select class="form-control" name="modeltype" v-model="airsoftpartlist.modeltype">
                           <option>Rifle</option>
                           <option>Pistol</option>
                           <option>ShotGun</option>
@@ -101,7 +101,7 @@
     data: {
       csrf_token: "",
       airsoftdata: [],
-      model: [
+      modeltype: [
       'RIFLE','PISTOL','SHOTGUN','SMG','MACHINGEGUN'
       ],
       author: "",
