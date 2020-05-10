@@ -26,5 +26,3 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 
-# def perform_create(self, serializer):
-#     serializer.save(author=self.request.user)

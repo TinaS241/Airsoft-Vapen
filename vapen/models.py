@@ -7,9 +7,11 @@ from django.contrib.auth.models import (AbstractBaseUser,PermissionsMixin)
 from user.models import CustomUser
 from django.contrib.auth.models import User
 
+
 class Airsoft(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True,)
-    text = models.TextField(max_length=1000,blank=True)
+    title = models.CharField(max_length=200, blank=True)
+    text = models.TextField(max_length=2000,blank=True)
     airnozzle = models.CharField(max_length=200,blank=True)
     anti_reversal_latches = models.CharField(max_length=200,blank=True)
     bushing_bearings = models.CharField(max_length=200,blank=True)
@@ -61,7 +63,7 @@ class Airsoft(models.Model):
         ("PISTOL", "Pistol"),
         ("SHOTGUN", "Shotgun"),
         ("SMG", "Smg"),
-        ("MACHINGEGUN", "MachingeGun")
+        ("MACHINGEGUN", "Machinge Gun")
     )
 
     modeltype = models.CharField(max_length=11, choices=airsofttype, default=airsofttype)
