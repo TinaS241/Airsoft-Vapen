@@ -13,6 +13,8 @@
           <div id="app">
                   <form>
                       <div class="form-group">
+                        <label for="title">Gun Brand</label>
+                        <textarea class="form-control" id="title" v-model="airsoftpartlist.title"></textarea><br>
                         <label for="modeltype" name="modeltype">Model Type</label>
                         <select class="form-control" name="modeltype" v-model="airsoftpartlist.modeltype">
                           <option>RIFLE</option>
@@ -103,9 +105,10 @@
       modeltype: [
       'RIFLE','PISTOL','SHOTGUN','SMG','MACHINGEGUN'
       ],
-      author: "",
       airsoftpartlist: {
+          "author": "",
           "id": "",
+          "title": "",
           "modeltype": "",  
           "text": "",
           "airnozzle": "",
@@ -174,6 +177,7 @@
             this.airsoftpartlist = {
               "author": "",
               "text": "",
+              "title": "",
               "modeltype": "",
               "airnozzle": "",
               "anti_reversal_latches": "",

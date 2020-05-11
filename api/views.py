@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics, viewsets
-
+from rest_framework import filters
 
 from vapen.models import Airsoft,Comment
 
@@ -14,6 +14,8 @@ from .serializers import UserSerializer
 class AirsoftViewSet(viewsets.ModelViewSet):
     queryset = Airsoft.objects.all()
     serializer_class = AirsoftSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['modeltype']
 
 
 class CommentViewSet(viewsets.ModelViewSet):
@@ -24,5 +26,7 @@ class CommentViewSet(viewsets.ModelViewSet):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['username']
 
 

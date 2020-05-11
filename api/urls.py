@@ -8,6 +8,7 @@ router = DefaultRouter()
 router.register('Airsoft', AirsoftViewSet, basename='Airsoft')
 router.register('Comment', CommentViewSet, basename='Comment')
 router.register('User', UserViewSet, basename='User')
+# router.register('ModelViewSet', ModelViewSet, basename='ModelList')
 
 
 
