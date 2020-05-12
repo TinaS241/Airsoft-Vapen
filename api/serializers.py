@@ -28,7 +28,7 @@ class AirsoftSerializer(serializers.ModelSerializer):
     username_info = UserSerializer(read_only=True, source='username')
     class Meta:
         model = Airsoft
-        fields = ('title','id','username_info','author','text','modeltype','airnozzle','anti_reversal_latches','bushing_bearings','cut_off_levers','cylinder_heads','cylinder_tuneup','cylinder','fuse','gearbox','gears','hop_up','inner_barrels','mosfet','motor','piston_heads','pistons','selector_plate','shims','spring_guides','spring','tappert_plate','tune_upkit','wiring_mosfet','adptors','charging_handles','conversion_kit','flash_hider','front_assembly','gas_block','under_barrel','hand_guard','magzine_catch','receivers','hand_grip','outer_barrels','pins','rail_accessories','rails','selector_switch','sight','sling_adapeters','stock','trigger','trigger_guard','vertical_grips')
+        fields = ('title','id','my_image','username_info','author','text','modeltype','airnozzle','anti_reversal_latches','bushing_bearings','cut_off_levers','cylinder_heads','cylinder_tuneup','cylinder','fuse','gearbox','gears','hop_up','inner_barrels','mosfet','motor','piston_heads','pistons','selector_plate','shims','spring_guides','spring','tappert_plate','tune_upkit','wiring_mosfet','adptors','charging_handles','conversion_kit','flash_hider','front_assembly','gas_block','under_barrel','hand_guard','magzine_catch','receivers','hand_grip','outer_barrels','pins','rail_accessories','rails','selector_switch','sight','sling_adapeters','stock','trigger','trigger_guard','vertical_grips')
         
 
 class CommentSerializer(serializers.ModelSerializer):

@@ -29,6 +29,16 @@
                         <textarea class="form-control" id="description" v-model="airsoftpartlist.text" rows="3"></textarea>
                       </div>
 
+                      <form action="<myurl>" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                          <label for="my_image"></label>
+                          <input type="file" name="my_image" accept="image/*" class="form-control-file" id="my_image" v-on:change="airsoftpartlist.my_image">
+                        </div>
+                        
+                      </form>
+
+
+
                     <div class="form-row">
                       <div class="col">
                         <h2><label for="internalparts">INTERNAL PARTS</label></h2><br>
@@ -106,6 +116,7 @@
       'RIFLE','PISTOL','SHOTGUN','SMG','MACHINGEGUN'
       ],
       airsoftpartlist: {
+          "my_image": "",
           "author": "",
           "id": "",
           "title": "",
@@ -170,11 +181,10 @@
           headers: {
             "X-CSRFTOKEN": this.csrf_token
           }
-
-
         }).then(response => {
             this.getGunList()
             this.airsoftpartlist = {
+              "my_image": "",
               "author": "",
               "text": "",
               "title": "",
@@ -227,6 +237,7 @@
               "id": "",
             }
           })
+      
       },
 
       getGunList() {
@@ -236,6 +247,10 @@
 
         }).then(response => this.data = response.data)
       },
+      
+      
+
+
 
     },
 

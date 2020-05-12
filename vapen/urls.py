@@ -1,15 +1,15 @@
 from django.urls import path, include
 from django.views.generic import TemplateView
+from django.conf.urls.static import static
+from django.conf import settings
 
 from . import views
 
-from .views import home_view
+from .views import upload_image
 
 app_name = 'vapen'
 urlpatterns = [
     path('', TemplateView.as_view(template_name="home.html"), name='home'),
-
-   path('vapen/', home_view), 
 
     path('vapen/custom/', TemplateView.as_view(template_name="custom.html"), name='custom'),
 
@@ -26,4 +26,4 @@ urlpatterns = [
     path('vapen/hpa/hpashotguns/', TemplateView.as_view(template_name="hpashotguns.html"), name='hpashotguns'),
     path('vapen/hpa/hpasmg/', TemplateView.as_view(template_name="hpasmg.html"), name='hpasmg'),
     path('vapen/hpa/newgun/', TemplateView.as_view(template_name="newgun.html"), name='newgun'),
-    ]
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

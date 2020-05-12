@@ -1,19 +1,10 @@
 from django.shortcuts import render
 
-# from .forms import model_type
-
-# def home_view(request):
-#     context = {}
-#     content['form'] =  ModelForm()
-#     return render(request, "newgun.html", context)
-
-
 
 from django.shortcuts import render 
-from .forms import GeeksForm 
+from .models import Airsoft
 
-# Create your views here. 
-def home_view(request): 
-	context = {} 
-	context['form'] = GeeksForm() 
-	return render( request, "home.html", context) 
+def upload_image(request):
+    my_image = request.FILES['my_image']
+    model = MyModel(..., my_image=my_image)
+    model.save()
