@@ -86,11 +86,12 @@
                         <input type="text" placeholder="stock" v-model="airsoftpartlist.stock"><br>
                         <input type="text" placeholder="trigger" v-model="airsoftpartlist.trigger"><br>
                         <input type="text" placeholder="trigger_guard" v-model="airsoftpartlist.trigger_guard"><br>
-                        <input type="text" placeholder="vertical_grips" v-model="airsoftpartlist.vertical_grips"><br>         
-                        <button @click="newAirsoftgun">New Airsoft build</button>
+                        <input type="text" placeholder="vertical_grips" v-model="airsoftpartlist.vertical_grips"><br>
+                        <button @click="newAirsoftgun()">New Airsoft build</button>
                       </div>
                     </div>
                   </form>
+
 
           </div>
 
@@ -173,7 +174,6 @@
 
 
         }).then(response => {
-            this.getGunList()
             this.airsoftpartlist = {
               "author": "",
               "text": "",
@@ -227,24 +227,16 @@
           })
       },
 
-      getGunList() {
-        axios({
-          method: "get",
-          url: "http://127.0.0.1:8000/api/v1/Airsoft/",
-
-        }).then(response => this.data = response.data)
-      },
 
     },
 
     mounted: function () {
         this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
-        this.getGunList();
+        
     },
 
   });
 
 </script>
-
 
 {% endblock content %}
