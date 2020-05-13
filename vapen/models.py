@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 
 class Airsoft(models.Model):
-    my_image = models.ImageField(upload_to='images/')
+    my_image = models.ImageField(upload_to='images/', blank=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True,)
     title = models.CharField(max_length=200, blank=True)
     text = models.TextField(max_length=2000,blank=True)

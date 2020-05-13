@@ -8,6 +8,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Add a New Gun</title>
+    
   </head>
     <body>
           <div id="app">
@@ -29,13 +30,7 @@
                         <textarea class="form-control" id="description" v-model="airsoftpartlist.text" rows="3"></textarea>
                       </div>
 
-                      <form action="<myurl>" method="POST" enctype="multipart/form-data">
-                        <div class="form-group">
-                          <label for="my_image"></label>
-                          <input type="file" name="my_image" accept="image/*" class="form-control-file" id="my_image" v-on:change="airsoftpartlist.my_image">
-                        </div>
-                        
-                      </form>
+                      
 
 
 
@@ -91,7 +86,7 @@
                         <input type="text" placeholder="stock" v-model="airsoftpartlist.stock"><br>
                         <input type="text" placeholder="trigger" v-model="airsoftpartlist.trigger"><br>
                         <input type="text" placeholder="trigger_guard" v-model="airsoftpartlist.trigger_guard"><br>
-                        <input type="text" placeholder="vertical_grips" v-model="airsoftpartlist.vertical_grips"><br>
+                        <input type="text" placeholder="vertical_grips" v-model="airsoftpartlist.vertical_grips"><br>         
                         <button @click="newAirsoftgun">New Airsoft build</button>
                       </div>
                     </div>
@@ -112,15 +107,9 @@
     data: {
       csrf_token: "",
       airsoftdata: [],
-      modeltype: [
-      'RIFLE','PISTOL','SHOTGUN','SMG','MACHINGEGUN'
-      ],
+      author: "",
       airsoftpartlist: {
-          "my_image": "",
-          "author": "",
-          "id": "",
-          "title": "",
-          "modeltype": "",  
+          "id": "",  
           "text": "",
           "airnozzle": "",
           "anti_reversal_latches": "",
@@ -181,14 +170,13 @@
           headers: {
             "X-CSRFTOKEN": this.csrf_token
           }
+
+
         }).then(response => {
             this.getGunList()
             this.airsoftpartlist = {
-              "my_image": "",
               "author": "",
               "text": "",
-              "title": "",
-              "modeltype": "",
               "airnozzle": "",
               "anti_reversal_latches": "",
               "bushing_bearings": "",
@@ -237,7 +225,6 @@
               "id": "",
             }
           })
-      
       },
 
       getGunList() {
@@ -247,10 +234,6 @@
 
         }).then(response => this.data = response.data)
       },
-      
-      
-
-
 
     },
 
