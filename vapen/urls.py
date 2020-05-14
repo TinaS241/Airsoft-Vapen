@@ -13,6 +13,8 @@ urlpatterns = [
 
     path('vapen/custom/', TemplateView.as_view(template_name="custom.html"), name='custom'),
 
+    path('vapen/details/', TemplateView.as_view(template_name="details.html"), name='details'),
+
     path('vapen/riflepage/', TemplateView.as_view(template_name="riflepage.html"), name='riflepage'),
     path('vapen/riflepage/aegpistols/', TemplateView.as_view(template_name="aegpistols.html"), name='aegpistols'),
     path('vapen/riflepage/aegmachineguns/', TemplateView.as_view(template_name="aegmachineguns.html"), name='aegmachineguns'),
