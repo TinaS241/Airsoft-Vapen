@@ -40,7 +40,8 @@
             </ul>
           </div>
         
-          
+            
+
             <div class="row row-cols-1 row-cols-md-3">
               <div class="col mb-4" v-for="airsoft in selecteddata" :key="airsoft.title">
               <div @click="airsofturl(airsoft)">
@@ -62,6 +63,8 @@
 </html>
 
 <script>
+    
+
     let app = new Vue({
         el: '#app',
         delimiters: ['[[',']]'],
@@ -71,6 +74,10 @@
         },
       
       methods: {
+        
+        
+
+
         getGunList() {
           axios({
             method: "get",

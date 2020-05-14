@@ -9,6 +9,7 @@ from user.models import CustomUser
 from .serializers import AirsoftSerializer
 from .serializers import CommentSerializer
 from .serializers import UserSerializer
+from .permissions import IsAuthorOrReadOnly
 
 
 class AirsoftViewSet(viewsets.ModelViewSet):
@@ -16,6 +17,7 @@ class AirsoftViewSet(viewsets.ModelViewSet):
     serializer_class = AirsoftSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['modeltype']
+    permission_classes = [IsAuthorOrReadOnly]
 
 
 class CommentViewSet(viewsets.ModelViewSet):
