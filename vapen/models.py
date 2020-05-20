@@ -6,11 +6,12 @@ from django.contrib import admin
 from django.contrib.auth.models import (AbstractBaseUser,PermissionsMixin)
 from user.models import CustomUser
 from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 
 class Airsoft(models.Model):
     my_image = models.ImageField(upload_to='images/', blank=True)
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True,)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200, blank=True)
     text = models.TextField(max_length=2000,blank=True)
     airnozzle = models.CharField(max_length=200,blank=True)

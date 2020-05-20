@@ -1,98 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 {% csrf_token %}
-<html>
-   <head>
-    <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>AGE Rifles</title>
-  </head>
-  <body>
-    <div id="app">
 
-      <nav class="navbar navbar-light bg-light">
-        <span class="navbar-text text-center">
-        <h2>AEG Airsoft Rifles<h2>
-        </span>
-      </nav>
 
-        <div class="card text-center">
-          <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <a class="nav-link text-black active" href="/vapen/riflepage/">Assault Rifles</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-black" href="/vapen/riflepage/aegpistols">Pistols</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/vapen/riflepage/aegsmg">SMG</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/vapen/riflepage/aegmachineguns">Machine Guns</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/vapen/riflepage/aegshotguns">Shotguns</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/vapen/riflepage/newgun">Add Custom Airsoft Rifle</a>
-              </li>
-            </ul>
-          </div>
-        
-          
-            <div class="row row-cols-1 row-cols-md-3">
-              <div class="col mb-4" v-for="airsoft in selecteddata" :key="airsoft.title">
-              <div @click="airsofturl(airsoft)">
-                <div class="card" style="width: 10rem;">
-                  <img class="card-img-top" :src="[[airsoft.my_image]]">
-                    <div class="card-body">
-                      <h5 class="card-title">[[airsoft.title]]</h5>
-                      <p class="card-text">[[airsoft.text]]</p>
-                    </div>
-                </div>
-              </div>
-            </div>
-            </div> 
-        </div>
-    </div>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/vue"></script>   
-  </body>
-</html>
+<div> hiiiiii</div>
 
-<script>
-    let app = new Vue({
-        el: '#app',
-        delimiters: ['[[',']]'],
-        data: {
-          airsoftdata: [],
-          selecteddata: [],
-        },
-      
-      methods: {
-        getGunList(airsoft) {
-          axios({
-            method: "get",
-            url: "http://127.0.0.1:8000/api/v1/Airsoft/",
+<h1></h1>
+
+<h3></h3>
+
+<div>
+    <ul>
+        <li>
             
-           
-          }).then(response => this.selecteddata = response.data)
-        },
-
-        airsofturl(airsoft) {
-          console.log(airsoft.id);
-          
-        }
-
-      },
-      mounted: function () {
-        this.getGunList();
-      },
-
-  });
-
-</script>
-
-
+        </li>
+    </ul>
+</div>
 {% endblock content %}

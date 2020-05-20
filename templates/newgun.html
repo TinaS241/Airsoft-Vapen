@@ -88,13 +88,12 @@
                         <input type="text" placeholder="Trigger Guard" v-model="airsoftpartlist.trigger_guard"><br>
                         <input type="text" placeholder="Vertical Grips" v-model="airsoftpartlist.vertical_grips"><br>
                         <input type="file" id="file" ref="my_image" v-on:change="handleFileUpload()"/>
+                        
                         <button @click.prevent="newAirsoftgun()">New Airsoft build</button>
                       </div>
                     </div>
                   </form>
-                  {% comment %} <input type="file" id="file" ref="my_image" v-on:change="handleFileUpload()"/>
-                  <button @click="submitFile()">Submit</button>
-                 {% endcomment %}
+                  
 
 
 
@@ -113,11 +112,12 @@
     data: {
       csrf_token: "",
       airsoftdata: [],
-      author: "",
+      CustomUser: "",
       my_image: "",
       formId: "",
       airsoftpartlist: {
-          "id": "",  
+          "id": "",
+          "author": "",  
           "text": "",
           "airnozzle": "",
           "anti_reversal_latches": "",
@@ -180,6 +180,7 @@
           data: this.airsoftpartlist, 
           headers: {
             "X-CSRFTOKEN": this.csrf_token,
+            
           }
 
 
@@ -234,6 +235,7 @@
               "trigger_guard": "",
               "vertical_grips": "",
               "id": "",
+              "author": "",  
             }
           
             

@@ -6,10 +6,10 @@ from vapen.models import Airsoft,Comment
 
 from user.models import CustomUser
 
-from .serializers import AirsoftSerializer
-from .serializers import CommentSerializer
-from .serializers import UserSerializer
+from .serializers import AirsoftSerializer,CommentSerializer,UserSerializer
+
 from .permissions import IsAuthorOrReadOnly
+
 
 
 class AirsoftViewSet(viewsets.ModelViewSet):
