@@ -112,12 +112,10 @@
     data: {
       csrf_token: "",
       airsoftdata: [],
-      CustomUser: "",
       my_image: "",
       formId: "",
       airsoftpartlist: {
-          "id": "",
-          "author": "",  
+          "id": "",  
           "text": "",
           "airnozzle": "",
           "anti_reversal_latches": "",
@@ -235,7 +233,6 @@
               "trigger_guard": "",
               "vertical_grips": "",
               "id": "",
-              "author": "",  
             }
           
             
@@ -255,6 +252,7 @@
             }).then(response => console.log(response.data, "this is reutrn axios")) 
           })
       },
+        
 
     
       handleFileUpload() {
@@ -264,8 +262,11 @@
 
     },
 
+      
+
     mounted: function () {
       this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+
       
     },
 

@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from rest_framework import generics, viewsets
 from rest_framework import filters
+from rest_framework.permissions import IsAuthenticated,IsAuthenticatedOrReadOnly,IsAdminUser
+from rest_framework.decorators import api_view
 
 from vapen.models import Airsoft,Comment
 
@@ -17,7 +19,8 @@ class AirsoftViewSet(viewsets.ModelViewSet):
     serializer_class = AirsoftSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['modeltype']
-    permission_classes = [IsAuthorOrReadOnly]
+    permission_classes = [IsAuthorOrReadOnly,IsAuthenticatedOrReadOnly]
+    
 
 
 class CommentViewSet(viewsets.ModelViewSet):
@@ -30,5 +33,10 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['username']
+    permission_classes = [IsAuthenticated,]
+
+# class ApiViewSet(ApiView):
+#     permission_classes = [IsAuthenticated,]
+
 
 

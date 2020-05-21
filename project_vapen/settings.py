@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'corsheaders',
 
     'rest_framework',
-    'rest_framework.authtoken',
     'rest_auth',
     'django_filters',
 
@@ -150,10 +149,11 @@ LOGIN_URL = 'login'
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAdminUser',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [ 
         'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
+        
     ],
     'DEFAULT_FILTER_BACKENDS': [
             'django_filters.rest_framework.DjangoFilterBackend'
