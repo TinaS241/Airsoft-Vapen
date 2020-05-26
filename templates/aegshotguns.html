@@ -1,25 +1,26 @@
 {% extends "base.html" %}
-
 {% block content %}
-
+{% csrf_token %}
 <html>
-  <head></head>
-  <title>ShotGuns</title>
+   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AGE Rifles</title>
+  </head>
   <body>
     <div id="app">
-
+    
 
       <nav class="navbar navbar-light bg-light">
-          <span class="navbar-text text-center">
-          <h2>ShotGuns<h2>
-          </span>
-      </nav>
-
-        <div class="card text-center">
+        <span class="navbar-text text-center">
+        <h2>AEG Airsoft<h2>
+        </span>
+      </nav>    
+          <div class="card text-center">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-            <li class="nav-item">
-                <a class="nav-link text-black active" href="/vapen/riflepage/aegshotguns">Shotguns</a>
+              <li class="nav-item">
+                <a class="nav-link" href="/vapen/riflepage/aegmachineguns">Machine Guns</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/vapen/riflepage/">Assault Rifles</a>
@@ -31,48 +32,81 @@
                 <a class="nav-link" href="/vapen/riflepage/aegsmg">SMG</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/vapen/riflepage/aegmachineguns">Machine Guns</a>
+                <a class="nav-link text-black active" href="/vapen/riflepage/aegshotguns">Shotguns</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/vapen/riflepage/newgun">Add Custom Airsoft Rifle</a>
               </li>
             </ul>
           </div>
-        
-          <div class="row row-cols-1 row-cols-md-3">
-              <div class="col mb-4" v-for="airsoft in selecteddata" :key="airsoft.title">
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">[[airsoft.title]]</h5>
-                      <p class="card-text">[[airsoft.text]]</p>
-                      <img :src="[[airsoft.my_image]]"></img>  
+              <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
                     </div>
+                    <div class="modal-body" v-for="(value, airsoft) in cardselectdata" :key="airsoft">
+                      <img class="card-img-top" :src="[[airsoft.my_image]]">
+                      <ul class="list-group" >
+                        <li class="list-group-item">[[airsoft]] : [[value]]</li>
+                        <input type="text" v-show="!isEdit"  v-model="cardselectdata[airsoft]"></input>
+                        <button type="button" class="btn btn-primary" @click="editGun(cardselectdata)">Edit</button>
+                        <button type="button" class="btn btn-primary" @click="updateGun(airsoft,cardselectdata[airsoft])">Update</button>
+                      </ul>
+                    </div>  
+
+                    <div class="modal-footer" :key="cardselectdata">
+                        <button type="button" class="btn btn-primary" @click="DeleteGun(cardselectdata)">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+
+                  </div>
                 </div>
               </div>
-            </div> 
-        </div>
+              
 
-        
-        
-
-
-
-
-
+                <div class="row row-cols-1 row-cols-md-3">
+                  <div class="col mb-4" v-for="airsoft in selecteddata" :key="airsoft.title">
+                        <div class="card">
+                          <img class="card-img-top" :src="[[airsoft.my_image]]">
+                            <div class="card-body">
+                              <h5 class="card-title">[[airsoft.title]]</h5>
+                              <p class="card-text text-truncate">[[airsoft.text]]</p>
+                              <button @click="airsofturl(airsoft)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                              Part List
+                              </button>
+                                </div>
+                            </div>
+                    
+                      </div> 
+                    </div>
+                </div>               
         </div>
     </div>
+    
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/vue"></script>   
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
   </body>
 </html>
 
 <script>
+  
+
     let app = new Vue({
         el: '#app',
         delimiters: ['[[',']]'],
-        data: {
+        data: { 
+          isEdit: true,
           airsoftdata: [],
+          csrf_token: "",
           selecteddata: [],
+          cardselectdata: [],
+          updatedata: [],
         },
       
       methods: {
@@ -81,15 +115,64 @@
             method: "get",
             url: "http://127.0.0.1:8000/api/v1/Airsoft/?search=SHOTGUN",
           }).then(response => this.selecteddata = response.data)
+
         },
+
+        airsofturl(airsoft) {
+          console.log("this is id", airsoft.id)
+          axios({
+            method: "get",
+            url: "http://127.0.0.1:8000/api/v1/Airsoft/" + airsoft.id,
+          }).then(response => this.cardselectdata = response.data).then(console.log(this.cardselectdata))
+          
+        },
+
+        editGun(value) {
+          this.isEdit = false
+        },
+
+        updateGun(key,value) {
+            let data = {}
+            data[key] = value
+            axios({
+            method: "patch",
+            data: data,
+            url: "http://127.0.0.1:8000/api/v1/Airsoft/" + this.cardselectdata.id + "/",
+            headers: {
+            "X-CSRFTOKEN": this.csrf_token,
+            }
+          }).then(response => console.log(response.data, "This is update Respone.Data"))
+        },
+
+        DeleteGun(cardselectdata) {
+            console.log(cardselectdata)
+             axios ({
+                method: "delete",
+                url: "http://127.0.0.1:8000/api/v1/Airsoft/" + cardselectdata.id + "/",
+                data: this.cardselectdata,
+                headers: {
+                    "X-CSRFTOKEN": this.csrf_token
+                }
+            }).then(response => this.getGunList())
+
+        }
+
+        
 
       },
 
+
+
       mounted: function () {
         this.getGunList();
+        this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
       },
 
   });
 
+
+
 </script>
+
+
 {% endblock content %}
