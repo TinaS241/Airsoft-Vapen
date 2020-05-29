@@ -2,66 +2,70 @@
 {% block content %}
 {% csrf_token %}
 <html>
-   <head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>AGE Rifles</title>
   </head>
+
   <body>
     <div id="app">
-    
 
-      <nav class="navbar navbar-light bg-light">
-        <span class="navbar-text text-center">
-        <h2>AEG Airsoft<h2>
-        </span>
-      </nav>    
-              <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body" v-for="(value, airsoft) in cardselectdata" :key="airsoft">
-                      <img class="card-img-top" :src="[[airsoft.my_image]]">
-                      <ul class="list-group" >
-                        <li class="list-group-item">[[airsoft]] : [[value]]</li>
-                        <input type="text" v-show="!isEdit"  v-model="cardselectdata[airsoft]"></input>
-                        <button type="button" class="btn btn-primary" @click="editGun(cardselectdata)">Edit</button>
-                        <button type="button" class="btn btn-primary" @click="updateGun(airsoft,cardselectdata[airsoft])">Update</button>
-                      </ul>
-                    </div>  
+        <nav class="navbar navbar-light bg-light">
+          <span class="navbar-text text-center">
+          <h2>AEG Airsoft<h2>
+          </span>
+        </nav>    
+    <div class="card text-center">    
+      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" v-for="(value, airsoft) in cardselectdata" v-bind:key="airsoft">
+              <img class="card-img-top" :src="[[airsoft.my_image]]">
+              <ul class="list-group" >
+                <li class="list-group-item text-capitalize">[[airsoft]] : [[value]]</li>
+                <input type="text" v-show="!isEdit"  v-model="cardselectdata[airsoft]"></input>
 
-                    <div class="modal-footer" :key="cardselectdata">
-                        <button type="button" class="btn btn-primary" @click="DeleteGun(cardselectdata)">Delete</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
+                <div class="btn-group btn-group-sm" role="group">
+                  <button type="button" class="btn btn-primary" @click="editGun(cardselectdata)">Edit</button>
+                  <button type="button" v-show="!isEdit" class="btn btn-secondary" @click="updateGun(airsoft,cardselectdata[airsoft])">Update</button>
+                </div>
 
+              </ul>
+            </div>  
+
+            <div class="modal-footer" :key="cardselectdata">
+                <button type="button" class="btn btn-primary" @click="DeleteGun(cardselectdata)">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+                
+      <div class="row row-cols-1 row-cols-md-3">
+        <div class="col mb-4" v-for="airsoft in selecteddata" v-bind:key="airsoft.title">
+              <div class="card">
+                <img class="card-img-top" :src="[[airsoft.my_image]]">
+                  <div class="card-body">
+                    <h5 class="card-title text-capitalize">[[airsoft.title]]</h5>
+                    <p class="card-text text-truncate">[[airsoft.text]]</p>
+                    <button @click="airsofturl(airsoft)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                    Part List
+                    </button>
+                      </div>
                   </div>
-                </div>
-              </div>
-              
+          
+            </div> 
+          </div>
+      </div>
 
-                <div class="row row-cols-1 row-cols-md-3">
-                  <div class="col mb-4" v-for="airsoft in selecteddata" :key="airsoft.title">
-                        <div class="card">
-                          <img class="card-img-top" :src="[[airsoft.my_image]]">
-                            <div class="card-body">
-                              <h5 class="card-title">[[airsoft.title]]</h5>
-                              <p class="card-text text-truncate">[[airsoft.text]]</p>
-                              <button @click="airsofturl(airsoft)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-                              Part List
-                              </button>
-                                </div>
-                            </div>
-                    
-                      </div> 
-                    </div>
-                </div>
-
-               
+      </div>        
                
         </div>
     </div>
@@ -137,6 +141,7 @@
         },
       
       methods: {
+
         getGunList() {
           axios({
             method: "get",

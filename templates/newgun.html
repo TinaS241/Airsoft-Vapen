@@ -8,6 +8,20 @@
   <head>
     <meta charset="UTF-8">
     <title>Add a New Gun</title>
+
+    <style>
+      body {
+        padding: 10px !important;
+        
+      }
+
+      button {
+        padding: 10px !important;
+      }
+
+      
+      
+    </style>
     
   </head>
     <body>
@@ -88,7 +102,7 @@
                         <input type="text" placeholder="Trigger Guard" v-model="airsoftpartlist.trigger_guard"><br>
                         <input type="text" placeholder="Vertical Grips" v-model="airsoftpartlist.vertical_grips"><br>
                         <input type="file" id="file" ref="my_image" v-on:change="handleFileUpload()"/>
-                        
+                      
                         <button @click.prevent="newAirsoftgun()">New Airsoft build</button>
                       </div>
                     </div>
